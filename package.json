@@ -1,0 +1,27 @@
+{
+  "name": "patin-pro",
+  "version": "4.5.0",
+  "private": true,
+  "description": "Patin Pro - juego de patinaje de velocidad (PWA + Capacitor)",
+  "scripts": {
+    "build": "node build.mjs",
+    "serve": "node build.mjs && npx http-server www -p 8080 -c-1",
+    "assets": "npx capacitor-assets generate --iconBackgroundColor #121F45 --splashBackgroundColor #121F45",
+    "cap:add:android": "npx cap add android",
+    "cap:add:ios": "npx cap add ios",
+    "cap:sync": "node build.mjs && npx cap sync && node scripts/patch-native.mjs",
+    "cap:android": "npm run cap:sync && npx cap open android",
+    "cap:ios": "npm run cap:sync && npx cap open ios"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.5.0",
+    "@capacitor/core": "^8.5.0",
+    "@capacitor/ios": "^8.5.0"
+  },
+  "devDependencies": {
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.0",
+    "esbuild": "^0.25.12",
+    "http-server": "^14.1.1"
+  }
+}
